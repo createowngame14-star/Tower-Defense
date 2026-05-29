@@ -8,55 +8,86 @@
 }
 
 body {
-    background-color: #3e2723; /* Теплый коричневый фон */
+    background-color: #3e2723;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    cursor: url('https://imgur.com/gK9fIqI.png'), auto; /* Кастомный мультяшный курсор-перчатка */
+    padding: 10px;
+    overflow: auto; /* Разрешаем скролл если всё же не влезло */
+    cursor: url('https://imgur.com/gK9fIqI.png'), auto;
 }
 
 /* Обертка игры */
 .game-wrapper.cartoon-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+    gap: 8px;
+    padding: 12px;
     background: linear-gradient(145deg, chocolate, #b35900);
     border-radius: 20px;
-    border: 8px solid sienna;
+    border: 6px solid sienna;
     box-shadow: 
-        0 15px 0 #4d2600,
-        0 20px 30px rgba(0, 0, 0, 0.6);
+        0 10px 0 #4d2600,
+        0 15px 25px rgba(0, 0, 0, 0.6);
     position: relative;
-    max-width: 95vw;
-    width: auto;
+    max-width: 100%;
+    max-height: 98vh; /* Ограничиваем высоту */
+    width: min-content;
 }
 
-/* Оптимизация для мобильных */
-@media (max-width: 850px) {
+/* Оптимизация для мобильных и малых экранов */
+@media (max-width: 850px), (max-height: 750px) {
     .ui-panel.cartoon-panel {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
+        padding: 8px 12px;
+        margin-bottom: 5px;
     }
     .cartoon-stats {
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 8px;
+        font-size: 10px;
     }
+    .stat-item.cartoon-frame {
+        padding: 4px 8px;
+    }
+    .stat-icon { font-size: 14px; }
+    
     .cartoon-controls {
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 6px;
+    }
+    .cartoon-btn {
+        padding: 8px 12px;
+        font-size: 8px;
     }
     .canvas-container.cartoon-canvas-container {
         width: 100% !important;
+        max-width: 800px;
         height: auto !important;
         aspect-ratio: 4 / 3;
     }
     canvas {
         width: 100% !important;
         height: auto !important;
+    }
+    
+    #overlay-title, .start-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ui-panel.cartoon-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .cartoon-stats {
+        justify-content: space-between;
+    }
+    .cartoon-controls {
+        justify-content: space-between;
+    }
+    .tower-btn .btn-text {
+        display: none; /* Прячем текст на очень узких экранах, оставляем иконки/цену */
     }
 }
 
