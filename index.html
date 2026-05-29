@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мультяшная Tower Defense</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-wrapper cartoon-wrapper">
+    <div class="ui-panel cartoon-panel">
+        <div class="stats cartoon-stats">
+            <div class="stat-item cartoon-frame gold-stat">
+                <span class="stat-icon">💰</span> <span id="gold-display">200</span>
+            </div>
+            <div class="stat-item cartoon-frame lives-stat">
+                <span class="stat-icon">❤️</span> <span id="lives-display">20</span>
+            </div>
+            <div class="stat-item cartoon-frame wave-stat">
+                <span class="stat-icon">🌊</span> <span id="wave-display">1</span> / 5
+            </div>
+        </div>
+        
+        <div class="controls cartoon-controls">
+            <button id="btn-normal" class="tower-btn cartoon-btn normal-tower" data-type="normal" data-cost="100">
+                <span class="btn-text">Обычная</span> <span class="btn-cost">(100💰)</span>
+            </button>
+            <button id="btn-fast" class="tower-btn cartoon-btn fast-tower" data-type="fast" data-cost="150">
+                <span class="btn-text">Быстрая</span> <span class="btn-cost">(150💰)</span>
+            </button>
+            <button id="btn-start-wave" class="action-btn cartoon-btn wave-btn">
+                <span class="btn-text">Волна!</span>
+            </button>
+            <button id="btn-speed" class="action-btn cartoon-btn speed-btn">
+                <span class="btn-text">x1</span>
+            </button>
+            <button id="btn-sell" class="action-btn cartoon-btn sell-btn hidden">
+                <span class="btn-text">ПРОДАТЬ</span>
+            </button>
+            <button id="btn-upgrade" class="action-btn cartoon-btn upgrade-btn hidden">
+                <span class="btn-text">УЛУЧШИТЬ</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="canvas-container cartoon-canvas-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div id="start-screen" class="cartoon-overlay">
+            <h1 class="start-title">TOWER<br>DEFENSE</h1>
+            <div class="loading-bar-container">
+                <div id="loading-fill"></div>
+            </div>
+            <button id="btn-play" class="action-btn cartoon-btn start-btn">ИГРАТЬ!</button>
+        </div>
+
+        <div id="game-overlay" class="hidden cartoon-overlay">
+            <h1 id="overlay-title">Game Over</h1>
+            <button id="btn-restart" class="action-btn cartoon-btn restart-btn">Перезапустить</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
